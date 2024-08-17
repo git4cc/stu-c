@@ -11,8 +11,7 @@
         margin: 0;
     }
     body {
-        width: 100%;
-        height: 95vh;
+        height: 100vh;
         margin: 0;
         display: flex;
         flex-direction: column;
@@ -326,10 +325,6 @@
         window.addEventListener('mousemove', clientsDragMouseMove, false);
         window.addEventListener('mouseup', clientsDragMouseUp, false);
 
-        clientsTitle.addEventListener('touchstart', clientsDragTouchDown, false);
-        window.addEventListener('touchmove', clientsDragTouchMove, false);
-        window.addEventListener('touchend', clientsDragTouchUp, false);
-
         function clientsDragMouseDown(e) {
             isClientsDown = true;
             clientsStartX = e.clientX;
@@ -348,27 +343,6 @@
         }
 
         function clientsDragMouseUp() {
-            isClientsDown = false;
-        }
-
-        function clientsDragTouchDown(e) {
-            isClientsDown = true;
-            clientsStartX = e.changedTouches[0].clientX;
-            clientsStartY = e.changedTouches[0].clientY;
-        }
-
-        function clientsDragTouchMove(e) {
-            if (isClientsDown) {
-                var x = clientsStartX - e.changedTouches[0].clientX;
-                var y = clientsStartY - e.changedTouches[0].clientY;
-                clientsWin.style.top = (clientsWin.offsetTop - y) + "px";
-                clientsWin.style.left = (clientsWin.offsetLeft - x) + "px";
-                clientsStartX = e.changedTouches[0].clientX;
-                clientsStartY = e.changedTouches[0].clientY;
-            }
-        }
-
-        function clientsDragTouchUp() {
             isClientsDown = false;
         }
     </script>
@@ -404,10 +378,6 @@
         window.addEventListener('mousemove', projectsDragMouseMove, false);
         window.addEventListener('mouseup', projectsDragMouseUp, false);
 
-        projectsTitle.addEventListener('touchstart', projectsDragTouchDown, false);
-        window.addEventListener('touchmove', projectsDragTouchMove, false);
-        window.addEventListener('touchend', projectsDragTouchUp, false);
-
         function projectsDragMouseDown(e) {
             isProjectsDown = true;
             projectsStartX = e.clientX;
@@ -426,27 +396,6 @@
         }
 
         function projectsDragMouseUp() {
-            isProjectsDown = false;
-        }
-
-        function projectsDragTouchDown(e) {
-            isProjectsDown = true;
-            projectsStartX = e.changedTouches[0].clientX;
-            projectsStartY = e.changedTouches[0].clientY;
-        }
-
-        function projectsDragTouchMove(e) {
-            if (isProjectsDown) {
-                var x = projectsStartX - e.changedTouches[0].clientX;
-                var y = projectsStartY - e.changedTouches[0].clientY;
-                projectsWin.style.top = (projectsWin.offsetTop - y) + "px";
-                projectsWin.style.left = (projectsWin.offsetLeft - x) + "px";
-                projectsStartX = e.changedTouches[0].clientX;
-                projectsStartY = e.changedTouches[0].clientY;
-            }
-        }
-
-        function projectsDragTouchUp() {
             isProjectsDown = false;
         }
     </script>
@@ -482,10 +431,6 @@
     window.addEventListener('mousemove', detailDragMouseMove, false);
     window.addEventListener('mouseup', detailDragMouseUp, false);
 
-    detailTitle.addEventListener('touchstart', detailDragTouchDown, false);
-    window.addEventListener('touchmove', detailDragTouchMove, false);
-    window.addEventListener('touchend', detailDragTouchUp, false);
-
     function detailDragMouseDown(e) {
         isdetailDown = true;
         detailStartX = e.clientX;
@@ -504,27 +449,6 @@
     }
 
     function detailDragMouseUp() {
-        isdetailDown = false;
-    }
-
-    function detailDragTouchDown(e) {
-        isdetailDown = true;
-        detailStartX = e.changedTouches[0].clientX;
-        detailStartY = e.changedTouches[0].clientY;
-    }
-
-    function detailDragTouchMove(e) {
-        if (isdetailDown) {
-            var x = detailStartX - e.changedTouches[0].clientX;
-            var y = detailStartY - e.changedTouches[0].clientY;
-            detailWin.style.top = (detailWin.offsetTop - y) + "px";
-            detailWin.style.left = (detailWin.offsetLeft - x) + "px";
-            detailStartX = e.changedTouches[0].clientX;
-            detailStartY = e.changedTouches[0].clientY;
-        }
-    }
-
-    function detailDragTouchUp() {
         isdetailDown = false;
     }
 </script>
@@ -560,16 +484,26 @@
     window.addEventListener('mousemove', imageDragMouseMove, false);
     window.addEventListener('mouseup', imageDragMouseUp, false);
 
-    imageTitle.addEventListener('touchstart', imageDragTouchDown, false);
-    window.addEventListener('touchmove', imageDragTouchMove, false);
-    window.addEventListener('touchend', imageDragTouchUp, false);
-
     function imageDragMouseDown(e) {
         isimageDown = true;
         imageStartX = e.clientX;
         imageStartY = e.clientY;
     }
 
+    function imageDragMouseMove(e) {
+        if (isimageDown) {
+            var x = imageStartX - e.clientX;
+            var y = imageStartY - e.clientY;
+            imageWin.style.top = (imageWin.offsetTop - y) + "px";
+            imageWin.style.left = (imageWin.offsetLeft - x) + "px";
+            imageStartX = e.clientX;
+            imageStartY = e.clientY;
+        }
+    }
+
+    function imageDragMouseUp() {
+        isimageDown = false;
+    }
 </script>
 
 </body>
