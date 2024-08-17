@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stu-C Agency</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../img/s.svg" type="image/x-icon">
+</head>
+<style>
+body {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: "ChicagoFLF";
+}
+h1 {
+    font-size: 60px;
+}
+#home-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#main-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+.sys-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid transparent;
+    max-width: fit-content;
+    cursor: pointer;
+}
+.sys-icon:hover {
+    border: 1px solid white;
+}
+.sys-icon img {
+    width: 50px;
+    height: 50px;
+}
+</style>
+<body>
+    <div id="title">
+        <h1>stu c</h1>
+        <h2>Branding Agency</h2>
+    </div>
+    <div id="home-icon-wrapper">
+        <div id="main-icon">
+            <div class="sys-icon">
+                <img src="../img/folder.svg" alt="">
+                <p>Portfolio</p>
+            </div>
+            <div class="sys-icon">
+                <img src="../img/file.svg" alt="">
+                <p>Clients</p>
+            </div>
+        </div>
+        <div class="sys-icon">
+            <img src="../img/contact.svg" alt="">
+            <p>Contact us</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<style>
+    body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        height: 100%
+    }
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        width: 100vw;
+        flex-grow: 1;
+    }
+    #project-title {
+        font-size: 24px;
+        font-family: "ChicagoFLF";
+    }
+    .clip-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .clip {
+        width: 45%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        image-rendering: pixelated;        
+    }
+    .head-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: black;
+        color: white;
+    }
+    .menu-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        font-family: "ChicagoFLF";
+    }
+</style>
+<body>
+    <section id="section-project">
+        <div class="head-bar">
+            <div class="menu-bar">
+                <img src="../img/s.svg" alt="">
+                <p>Stu-C</p>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2 id="project-title">SHRKS branding</h2>
+            <p>SHRKS, a basketball club needs a design for their new logo and their sport costume</p>
+            <div class="clip-wrap">
+                <img src="../atas.jpeg" alt="" class="clip">
+                <img src="../atas.jpeg" alt="" class="clip">
+            </div>
+        </div>
+        <div class="head-bar">
+            <div class="menu-bar">
+                <img src="../img/s.svg" alt="">
+                <p>Stu-C</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

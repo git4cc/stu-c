@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stu C - Brand Agency</title>
+    <link rel="icon" href="img/s.svg">
+</head>
+
+<style>
+    p {
+        margin: 0;
+    }
+    h2 {
+        margin: 0;
+    }
+    h3 {
+        margin: 0;
+        font-family: "ChicagoFLF";
+    }
+    .description {
+        font-family: "Inconsolata";
+    }
+    body {
+        height: 100vh;
+        margin: 0;
+        background-color: black;
+    }
+    section {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s;
+    }
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        height: 100%;
+        overflow-y: scroll;
+        flex-grow: 1;
+    }
+    .second-level {
+        position: absolute;
+        height: 90vh;
+        bottom: 0;
+    }
+    .third-level {
+        position: absolute;
+        height: 90vh;
+        bottom: 0;
+    }
+    #desktop {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        background-image: url("img/stu-c.svg");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+        background-color: white;
+    }
+    .desktop-list {
+        display: flex;
+        flex-direction: column;
+    }
+    .desktop-item {
+        font-family: "ChicagoFLF";
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-top: 1px solid black;
+        cursor: pointer;
+        background-color: white;
+        transition: all 0.2s;
+    }
+    .desktop-item:hover {
+        filter: invert(100%);
+    }
+    .item-text {
+        flex-grow: 1;
+    }
+
+    .client-logo-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+    .client-logo-wrap img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        filter: grayscale(100%);
+    }
+
+    .title-bar {
+        text-align: center;
+        font-size: 14px;
+        font-family: "ChicagoFLF";
+        padding: 10px 20px;
+        border-bottom: 1px solid black;
+        background-color: white;
+    }
+    .footer-bar {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        padding: 10px 20px;
+        border-top: 1px solid black;
+        background-color: white;
+        font-family: "ChicagoFLF";
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .footer-bar:hover {
+        filter: invert(100%);
+    }
+
+    .project-clip-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        overflow-y: scroll;
+        padding: 20px;
+    }
+    .clip-project {
+        width: 45%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        image-rendering: pixelated;
+    }
+
+    .project-image {
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <section id="desktop">
+        <div class="desktop-list">
+            <div class="desktop-item" onclick="openClients()">
+                <img src="img/file.svg" alt="" class="item-icon">
+                <p class="item-text">Clients</p>
+                <p>></p>
+            </div>
+            <div class="desktop-item" onclick="openProjects()">
+                <img src="img/folder.svg" alt="" class="item-icon">
+                <p class="item-text">Projects</p>
+                <p>></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="second-level" style="display: none;">
+        <div class="title-bar">
+            <h2>Clients</h2>
+        </div>
+        <div class="client-logo-wrap">
+            <img src="img/clients/bri.svg" alt="BRI" class="client-logo">
+            <img src="img/clients/generali.png" alt="BRI" class="client-logo">
+            <img src="img/clients/hbap.png" alt="BRI" class="client-logo">
+            <img src="img/clients/jalin.png" alt="BRI" class="client-logo">
+            <img src="img/clients/kementerian pertahanan.png" alt="BRI" class="client-logo">
+            <img src="img/clients/paramadina.png" alt="BRI" class="client-logo">
+            <img src="img/clients/permata.png" alt="BRI" class="client-logo">
+            <img src="img/clients/rekind.png" alt="BRI" class="client-logo">
+            <img src="img/clients/standard chartered.png" alt="BRI" class="client-logo">
+            <img src="img/clients/xuping.png" alt="BRI" class="client-logo">
+        </div>
+        <div class="footer-bar" onclick="closeClients()">
+            <img src="img/down.svg" alt="">
+            <p>Close</p>
+        </div>
+    </section>
+
+    <section id="projects" class="second-level" style="display: none;">
+        <div class="title-bar">
+            <h2>Projects</h2>
+        </div>
+        <div class="project-clip-wrap">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+        </div>
+        <div class="footer-bar" onclick="closeProjects()">
+            <img src="img/down.svg" alt="">
+            <p>Close</p>
+        </div>
+    </section>
+
+    <section id="detail" class="third-level" style="display: none;">
+        <div class="title-bar">
+            <h2>Project Name</h2>
+        </div>
+        <div class="section-content">
+            <h3>SHRKS Branding</h3>
+            <p class="description">SHRKS, a basketball club needs a design for their new logo and their sport costume</p>
+                <img src="img/project/atas.jpeg" alt="" class="project-image" onclick="openImage()">
+                <img src="img/project/atas.jpeg" alt="" class="project-image" onclick="openImage()">
+        </div>
+        <div class="footer-bar" onclick="closeDetail()">
+            <img src="img/down.svg" alt="">
+            <p>Close</p>
+        </div>
+    </section>
+
+
+<!-- Clients -->
+<script>
+    const winDesktop = document.getElementById("desktop");
+    const winClients = document.getElementById("clients");
+
+    function openClients() {
+        winClients.style.display = "flex";
+        winDesktop.style.transform = "scale(0.9)";
+        winDesktop.style.top = "5";
+        winDesktop.style.opacity = "0.5";
+        winClients.style.bottom = "-100%";
+        winClients.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            winClients.style.bottom = "0%";
+        }, 100);
+    };
+
+    function closeClients() {
+        winDesktop.style.transform = "scale(1)";
+        winDesktop.style.opacity = "1";
+        winClients.style.bottom = "0%";
+        winClients.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            winClients.style.bottom = "-100%";
+            setTimeout(() => {
+                winClients.style.display = "none";
+            }, 300);
+        }, 50);
+    };
+
+// PROJECTS
+    const winProjects = document.getElementById("projects");
+
+    function openProjects() {
+        winProjects.style.display = "flex";
+        winDesktop.style.transform = "scale(0.9)";
+        winDesktop.style.opacity = "0.5";
+        winProjects.style.bottom = "-100%";
+        winProjects.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            winProjects.style.bottom = "0%";
+        }, 100);
+    };
+
+    function closeProjects() {
+        winDesktop.style.transform = "scale(1)";
+        winDesktop.style.opacity = "1";
+        winProjects.style.bottom = "0%";
+        winProjects.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            winProjects.style.bottom = "-100%";
+            setTimeout(() => {
+                winProjects.style.display = "none";
+            }, 300);
+        }, 50);
+    };
+
+// DETAIL 
+    const winDetail = document.getElementById("detail");
+
+    function openDetail() {
+        winDetail.style.display = "flex";
+        winDesktop.style.transform = "scale(0.85)";
+        winDesktop.style.display = "none";
+        winDetail.style.transition = "all 0.3s ease";
+        winProjects.style.transform = "scale(0.9)";
+        winProjects.style.opacity = "0.5";
+        winProjects.style.bottom = "10%";
+        winProjects.style.transition = "all 0.3s ease";
+        winDetail.style.bottom = "-100%";
+        winDetail.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            winDetail.style.bottom = "0%";
+        }, 100);
+    };
+
+    function closeDetail() {
+        winDesktop.style.transform = "scale(0.9)";
+        winDesktop.style.opacity = "0.5";
+        winDesktop.style.display = "flex";
+        winProjects.style.transform = "scale(1)";
+        winProjects.style.opacity = "1";
+        winProjects.style.bottom = "0%";
+        winProjects.style.transition = "all 0.3s ease";
+        winDetail.style.bottom = "0%";
+        winDetail.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            winDetail.style.bottom = "-100%";
+            setTimeout(() => {
+                winDetail.style.display = "none";
+            }, 300);
+        }, 50);
+    };
+
+</script>
+
+</body>
+</html>

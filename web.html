@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stu C - Brand Agency</title>
+    <link rel="icon" href="img/s.svg">
+</head>
+<style>
+    p {
+        margin: 0;
+    }
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #A0A0A0;
+        background-image: url("img/stu-c.svg");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+    }
+    #menu-bar {
+        display: flex;
+        flex-direction: row;
+        font-family: "ChicagoFLF";
+        height: 30px;
+        border-bottom: 1px solid black;
+        background-color: white;
+    }
+    #main-logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 0px 15px;
+        background-color: white;
+        transition: all 0.2s;
+    }
+    #main-logo img {
+        width: 15px;
+        height: 15px;
+    }
+    #main-logo:hover {
+        cursor: pointer;
+        filter: invert(100%);
+    }
+
+    .desktop-icon-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        border: 1px solid transparent;
+        max-width: fit-content;
+        cursor: pointer;
+        margin: 10px;
+        font-family: 'inconsolata';
+        font-weight: 600;
+    }
+    .desktop-icon-div:hover {
+        border: 1px solid black;
+    }
+    .desktop-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .window {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        background-color: white;
+        position: absolute;
+        width: 500px;
+        min-height: 300px;
+        box-shadow: 5px 5px 0px 0 black;
+        transition: scale 0.2s;
+    }
+    .title-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+        border-bottom: 1px solid black;
+    }
+    .subtitle-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px solid black;
+        font-family: 'ChicagoFLF';
+        font-size: 14px;
+        padding: 5px;
+    }
+    .content-area {
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        flex-grow: 1;
+        overflow-y: scroll;
+        padding: 20px;
+        gap: 20px;
+    }
+    h1 {
+        margin: 0;
+        font-family: "ChicagoFLF";
+        font-size: 20px;
+        align-self: center;
+    }
+    h2 {
+        margin: 0;
+        font-family: "ChicagoFLF";
+        font-size: 18px;
+    }
+    .description {
+        font-family: 'inconsolata';
+    }
+    .close {
+        width: 16px;
+        height: 16px;
+        border: 1px solid black;
+        background-color: white;
+        border-radius: 10%;
+        position: absolute;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .stripe-bar {
+        flex-grow: 1;
+        height: 16px;
+        background-image: url("img/bar.svg");
+    }
+    .client-logo-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+    .client-logo {
+        width: 25%;
+        max-height: 50px;
+        filter: grayscale(100%);
+        transition: all 0.5s;
+        object-fit: contain;
+    }
+    .client-logo:hover {
+        filter: grayscale(0%);
+    }
+
+    .project-clip-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .clip-project {
+        width: 30%;
+        height: 100px;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: all 0.5s;
+        box-shadow: 2px 2px 0px 0 white;
+        cursor: pointer;
+    }
+    .clip-project:hover {
+        filter: grayscale(0%);
+        box-shadow: 2px 2px 0px 0 black;
+    }
+</style>
+<body>
+    <section id="menu-bar">
+        <div id="main-logo">
+            <img src="img/s.svg" alt="">
+            <p>stu c</p>
+        </div>
+    </section>
+
+    <section id="desktop">
+        <div class="desktop-icon-div" onclick="openClients()">
+            <img src="img/file.svg" alt="folder" class="desktop-icon">
+            <p class="desktop-icon-text">Clients</p>
+        </div>
+        <div class="desktop-icon-div" onclick="openProjects()">
+            <img src="img/folder.svg" alt="folder" class="desktop-icon">
+            <p class="desktop-icon-text">Projects</p>
+        </div>
+        <div id="win-clients" class="window"
+            style=" top: -10%;
+                    left: -10%;
+                    transform: translate(50%, 50%);
+                    display: none;">
+            <div id="title-clients" class="title-bar">
+                <img src="img/bar.svg" alt="">
+                <div class="stripe-bar"></div>
+                <h1>Clients</h1>
+                <div class="stripe-bar"></div>
+                <div class="close" onclick="closeClients()"></div>
+            </div>
+            <div class="content-area">
+                <div class="client-logo-wrap">
+                    <img src="img/clients/bri.svg" alt="BRI" class="client-logo">
+                    <img src="img/clients/generali.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/hbap.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/jalin.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/kementerian pertahanan.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/paramadina.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/permata.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/rekind.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/standard chartered.png" alt="BRI" class="client-logo">
+                    <img src="img/clients/xuping.png" alt="BRI" class="client-logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="win-projects"
+            style=" top: 0%;
+                    left: 0%;
+                    transform: translate(50%, 50%);
+                    display: none;">
+            <div class="title-bar" id="title-projects">
+                <img src="img/bar.svg" alt="">
+                <div class="stripe-bar"></div>
+                <h1>Projects</h1>
+                <div class="stripe-bar"></div>
+                <div class="close" onclick="closeProjects()"></div>
+            </div>
+            <div class="content-area">
+                <div class="project-clip-wrap">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="win-detail"
+            style=" top: -15%;
+                    left: 30%;
+                    transform: translate(50%, 50%);
+                    display: none;">
+            <div class="title-bar" id="title-detail">
+                <img src="img/bar.svg" alt="">
+                <div class="stripe-bar"></div>
+                <h1>Project Name</h1>
+                <div class="stripe-bar"></div>
+                <div class="close" onclick="closeDetail()"></div>
+            </div>
+            <div class="subtitle-bar">
+                <p>Category</p>
+                <p>Clients Name</p>
+                <p>project.link</p>
+            </div>
+            <div class="content-area">
+                <h2>SHRKS Branding</h2>
+                <p class="description">SHRKS, a basketball club needs a design for their new logo and their sport costume</p>
+                <div class="project-clip-wrap">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
+                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
+                </div>
+            </div>
+        </div>
+        <div class="window" id="win-image"
+            style=" top: 15%;
+                    left: 40%;
+                    transform: translate(50%, 50%);
+                    display: none;">
+            <div class="title-bar" id="title-image">
+                <img src="img/bar.svg" alt="">
+                <div class="stripe-bar"></div>
+                <h1>Project Name</h1>
+                <div class="stripe-bar"></div>
+                <div class="close" onclick="closeImage()"></div>
+            </div>
+            <img src="img/project/atas.jpeg" alt="">
+
+    </section>
+
+<!-- Clients -->
+    <script>
+        function openClients() {
+            document.getElementById("win-clients").style.display = "flex";
+            document.getElementById("win-clients").style.scale = "0%";
+            setTimeout(function(){
+                document.getElementById("win-clients").style.scale = "100%";
+            }, 100);
+            
+        }
+
+        function closeClients() {
+            document.getElementById("win-clients").style.scale = "100%";
+            setTimeout(function(){
+                document.getElementById("win-clients").style.scale = "0%";
+            }, 100);
+        }
+
+        var isClientsDown = false;
+        var clientsStartX;
+        var clientsStartY;
+        var clientsXOffset = 0;
+        var clientsYOffset = 0;
+
+        var clientsWin = document.getElementById("win-clients");
+        var clientsTitle = document.getElementById("title-clients");
+
+        clientsTitle.addEventListener('mousedown', clientsDragMouseDown, false);
+        window.addEventListener('mousemove', clientsDragMouseMove, false);
+        window.addEventListener('mouseup', clientsDragMouseUp, false);
+
+        function clientsDragMouseDown(e) {
+            isClientsDown = true;
+            clientsStartX = e.clientX;
+            clientsStartY = e.clientY;
+        }
+
+        function clientsDragMouseMove(e) {
+            if (isClientsDown) {
+                var x = clientsStartX - e.clientX;
+                var y = clientsStartY - e.clientY;
+                clientsWin.style.top = (clientsWin.offsetTop - y) + "px";
+                clientsWin.style.left = (clientsWin.offsetLeft - x) + "px";
+                clientsStartX = e.clientX;
+                clientsStartY = e.clientY;
+            }
+        }
+
+        function clientsDragMouseUp() {
+            isClientsDown = false;
+        }
+    </script>
+
+<!-- Projects -->
+    <script>
+        function openProjects() {
+            document.getElementById("win-projects").style.display = "flex";
+            document.getElementById("win-projects").style.scale = "0%";
+            setTimeout(function(){
+                document.getElementById("win-projects").style.scale = "100%";
+            }, 100);
+            
+        }
+
+        function closeProjects() {
+            document.getElementById("win-projects").style.scale = "100%";
+            setTimeout(function(){
+                document.getElementById("win-projects").style.scale = "0%";
+            }, 100);
+        }
+
+        var isProjectsDown = false;
+        var projectsStartX;
+        var projectsStartY;
+        var projectsXOffset = 0;
+        var projectsYOffset = 0;
+
+        var projectsWin = document.getElementById("win-projects");
+        var projectsTitle = document.getElementById("title-projects");
+
+        projectsTitle.addEventListener('mousedown', projectsDragMouseDown, false);
+        window.addEventListener('mousemove', projectsDragMouseMove, false);
+        window.addEventListener('mouseup', projectsDragMouseUp, false);
+
+        function projectsDragMouseDown(e) {
+            isProjectsDown = true;
+            projectsStartX = e.clientX;
+            projectsStartY = e.clientY;
+        }
+
+        function projectsDragMouseMove(e) {
+            if (isProjectsDown) {
+                var x = projectsStartX - e.clientX;
+                var y = projectsStartY - e.clientY;
+                projectsWin.style.top = (projectsWin.offsetTop - y) + "px";
+                projectsWin.style.left = (projectsWin.offsetLeft - x) + "px";
+                projectsStartX = e.clientX;
+                projectsStartY = e.clientY;
+            }
+        }
+
+        function projectsDragMouseUp() {
+            isProjectsDown = false;
+        }
+    </script>
+
+<!-- Detail -->
+<script>
+    function openDetail() {
+        document.getElementById("win-detail").style.display = "flex";
+        document.getElementById("win-detail").style.scale = "0%";
+        setTimeout(function(){
+            document.getElementById("win-detail").style.scale = "100%";
+        }, 100);
+        
+    }
+
+    function closeDetail() {
+        document.getElementById("win-detail").style.scale = "100%";
+        setTimeout(function(){
+            document.getElementById("win-detail").style.scale = "0%";
+        }, 100);
+    }
+
+    var isdetailDown = false;
+    var detailStartX;
+    var detailStartY;
+    var detailXOffset = 0;
+    var detailYOffset = 0;
+
+    var detailWin = document.getElementById("win-detail");
+    var detailTitle = document.getElementById("title-detail");
+
+    detailTitle.addEventListener('mousedown', detailDragMouseDown, false);
+    window.addEventListener('mousemove', detailDragMouseMove, false);
+    window.addEventListener('mouseup', detailDragMouseUp, false);
+
+    function detailDragMouseDown(e) {
+        isdetailDown = true;
+        detailStartX = e.clientX;
+        detailStartY = e.clientY;
+    }
+
+    function detailDragMouseMove(e) {
+        if (isdetailDown) {
+            var x = detailStartX - e.clientX;
+            var y = detailStartY - e.clientY;
+            detailWin.style.top = (detailWin.offsetTop - y) + "px";
+            detailWin.style.left = (detailWin.offsetLeft - x) + "px";
+            detailStartX = e.clientX;
+            detailStartY = e.clientY;
+        }
+    }
+
+    function detailDragMouseUp() {
+        isdetailDown = false;
+    }
+</script>
+
+<!-- Image -->
+<script>
+    function openImage() {
+        document.getElementById("win-image").style.display = "flex";
+        document.getElementById("win-image").style.scale = "0%";
+        setTimeout(function(){
+            document.getElementById("win-image").style.scale = "100%";
+        }, 100);
+        
+    }
+
+    function closeImage() {
+        document.getElementById("win-image").style.scale = "100%";
+        setTimeout(function(){
+            document.getElementById("win-image").style.scale = "0%";
+        }, 100);
+    }
+
+    var isimageDown = false;
+    var imageStartX;
+    var imageStartY;
+    var imageXOffset = 0;
+    var imageYOffset = 0;
+
+    var imageWin = document.getElementById("win-image");
+    var imageTitle = document.getElementById("title-image");
+
+    imageTitle.addEventListener('mousedown', imageDragMouseDown, false);
+    window.addEventListener('mousemove', imageDragMouseMove, false);
+    window.addEventListener('mouseup', imageDragMouseUp, false);
+
+    function imageDragMouseDown(e) {
+        isimageDown = true;
+        imageStartX = e.clientX;
+        imageStartY = e.clientY;
+    }
+
+    function imageDragMouseMove(e) {
+        if (isimageDown) {
+            var x = imageStartX - e.clientX;
+            var y = imageStartY - e.clientY;
+            imageWin.style.top = (imageWin.offsetTop - y) + "px";
+            imageWin.style.left = (imageWin.offsetLeft - x) + "px";
+            imageStartX = e.clientX;
+            imageStartY = e.clientY;
+        }
+    }
+
+    function imageDragMouseUp() {
+        isimageDown = false;
+    }
+</script>
+
+</body>
+</html>
