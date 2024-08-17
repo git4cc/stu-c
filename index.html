@@ -22,6 +22,8 @@
         font-family: "Inconsolata";
     }
     body {
+        height: 95vh;
+        margin: 0;
         margin: 0;
         background-color: black;
     }
@@ -42,16 +44,16 @@
     }
     .second-level {
         position: absolute;
-        height: 90vh;
+        height: 90%;
         bottom: 0;
     }
     .third-level {
         position: absolute;
-        height: 90vh;
+        height: 90%;
         bottom: 0;
     }
     #desktop {
-        height: 100vh;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: end;
@@ -133,6 +135,7 @@
         justify-content: center;
         overflow-y: scroll;
         padding: 20px;
+        flex-grow: 1;
     }
     .clip-project {
         width: 45%;
