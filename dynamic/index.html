@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Grid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Portfolio</h1>
+    <div class="portfolio-grid">
+        <div class="portfolio-item" data-file="project1.html">
+            <img src="image1.jpg" alt="Project 1">
+        </div>
+        <div class="portfolio-item" data-file="project2.html">
+            <img src="image2.jpg" alt="Project 2">
+        </div>
+        <div class="portfolio-item" data-file="project3.html">
+            <img src="image3.jpg" alt="Project 3">
+        </div>
+    </div>
+
+    <!-- Popup Container -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="popup-body"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const fileName = this.getAttribute('data-file');
+                fetch(`lib/${fileName}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('popup-body').innerHTML = data;
+                        document.getElementById('popup').style.display = 'block';
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            });
+        });
+
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('popup')) {
+                document.getElementById('popup').style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>

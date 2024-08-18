@@ -1,0 +1,30 @@
+{
+    "portfolioItems": [
+      {
+        "title": "Project Alpha 1234",
+        "description": "A branding project for a tech startup.",
+        "images": [
+          "images/alpha1.jpg",
+          "images/alpha2.jpg",
+          "images/alpha3.jpg"
+        ],
+        "clientName": "Tech Innovators Inc.",
+        "serviceCategory": "Branding",
+        "link": "https://example.com/alpha"
+      },
+      {
+        "title": "Project Beta 1234",
+        "description": "UI/UX design for a mobile application.",
+        "images": [
+          "images/beta1.jpg",
+          "images/beta2.jpg",
+          "images/beta3.jpg",
+          "images/beta4.jpg"
+        ],
+        "clientName": "Mobile Solutions LLC",
+        "serviceCategory": "UI/UX Design",
+        "link": "https://example.com/beta"
+      }
+    ]
+  }
+  

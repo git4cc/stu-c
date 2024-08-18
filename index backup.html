@@ -141,11 +141,8 @@
     .clip-project {
         width: 45%;
         object-fit: cover;
-        filter: grayscale(80%);
-        transition: all 0.6s;
-    }
-    .clip-project:hover {
-        filter: grayscale(0%);
+        filter: grayscale(100%);
+        image-rendering: pixelated;
     }
 
     .project-image {
@@ -197,7 +194,7 @@
             <img src="img/clients/xuping.png" alt="BRI" class="client-logo">
         </div>
         <div class="footer-bar" onclick="closeClients()">
-            <img src="img/down.svg" alt="" style="width: 10px;">
+            <img src="img/down.svg" alt="">
             <p>Close</p>
         </div>
     </section>
@@ -207,9 +204,9 @@
             <h2>Projects</h2>
         </div>
         <div class="project-clip-wrap">
-            <img src="lib/img/jalin.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="jalin.html">
-            <img src="lib/img/indonesiaforum-ig.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="indonesiaforum.html">
-            <img src="lib/img/hbap-1.png" alt="" class="clip-project" onclick="openDetail()" data-file="hbap.html">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+            <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
             <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
             <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
             <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
@@ -226,12 +223,16 @@
 
     <section id="detail" class="third-level" style="display: none;">
         <div class="title-bar">
-            <h2>Project Detail</h2>
+            <h2>Project Name</h2>
         </div>
-        <div class="section-content" id="detail-content">
+        <div class="section-content">
+            <h3>SHRKS Branding</h3>
+            <p class="description">SHRKS, a basketball club needs a design for their new logo and their sport costume</p>
+                <img src="img/project/atas.jpeg" alt="" class="project-image" onclick="openImage()">
+                <img src="img/project/atas.jpeg" alt="" class="project-image" onclick="openImage()">
         </div>
         <div class="footer-bar" onclick="closeDetail()">
-            <img src="img/down.svg" alt="" style="width: 12px;">
+            <img src="img/down.svg" alt="">
             <p>Close</p>
         </div>
     </section>
@@ -330,19 +331,6 @@
             }, 300);
         }, 50);
     };
-
-    // SHOW DYNAMIC CONTENT
-    document.querySelectorAll('.clip-project').forEach(item => {
-            item.addEventListener('click', function() {
-                const fileName = this.getAttribute('data-file');
-                fetch(`lib/${fileName}`)
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('detail-content').innerHTML = data;
-                    })
-                    .catch(error => console.error('Error loading content:', error));
-            });
-        });
 
 </script>
 
