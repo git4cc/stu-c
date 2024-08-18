@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "ChicagoFLF";
+    src: url(font/ChicagoFLF.ttf);
+}
+@font-face {
+    font-family: "Inconsolata";
+    src: url(font/Inconsolata.ttf);
+}
 body {
     font-family: "Inconsolata", "ChicagoFLF", 'Courier New', Courier, monospace;
 }
