@@ -10,6 +10,15 @@
     p {
         margin: 0;
     }
+    h1 {
+        margin: 0;
+    }
+    h2 {
+        margin: 0;
+    }
+    h3 {
+        margin: 0;
+    }
     body {
         width: 100%;
         height: 95vh;
@@ -75,17 +84,25 @@
         border: 1px solid black;
         background-color: white;
         position: absolute;
-        width: 500px;
-        min-height: 300px;
         box-shadow: 5px 5px 0px 0 black;
         transition: scale 0.2s;
+    }
+    #win-projects, #win-clients {
+        max-height: 50vh;
+        width: 90%;
+        max-width: 500px;
+    }
+    #win-detail {
+        max-height: 70vh;
+        width: 50%;
     }
     .title-bar {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 2px;
+        gap: 5px;
         border-bottom: 1px solid black;
+        padding: 2px 0px;
     }
     .subtitle-bar {
         display: flex;
@@ -201,7 +218,7 @@
             <div id="title-clients" class="title-bar">
                 <img src="img/bar.svg" alt="">
                 <div class="stripe-bar"></div>
-                <h1>Clients</h1>
+                <h2>Clients</h2>
                 <div class="stripe-bar"></div>
                 <div class="close" onclick="closeClients()"></div>
             </div>
@@ -229,54 +246,43 @@
             <div class="title-bar" id="title-projects">
                 <img src="img/bar.svg" alt="">
                 <div class="stripe-bar"></div>
-                <h1>Projects</h1>
+                <h2>Projects</h2>
                 <div class="stripe-bar"></div>
                 <div class="close" onclick="closeProjects()"></div>
             </div>
             <div class="content-area">
                 <div class="project-clip-wrap">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openDetail()">
+                    <img src="lib/img/jalin.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="jalin.html">
+            <img src="lib/img/indonesiaforum-ig.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="indonesiaforum.html">
+            <img src="lib/img/hbap-1.png" alt="" class="clip-project" onclick="openDetail()" data-file="hbap.html">
+            <img src="lib/img/dpo-mural-konsep.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="dpo.html">
+            <img src="lib/img/barnstore-merch.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="barnstore.html">
+            <img src="lib/img/bri-mural.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="bri.html">
+            <img src="lib/img/saranajaya-1.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="saranajaya.html">
+            <img src="lib/img/pugas7.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="pugas.html">
+            <img src="lib/img/calon1.png" alt="" class="clip-project" onclick="openDetail()" data-file="calon.html">
+            <img src="lib/img/rekind.png" alt="" class="clip-project" onclick="openDetail()" data-file="rekind.html">
+            <img src="lib/img/ketika1.png" alt="" class="clip-project" onclick="openDetail()" data-file="ketika.html">
+            <img src="lib/img/brevara1.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="brevara.html">
+            <img src="lib/img/fluenttly1.png" alt="" class="clip-project" onclick="openDetail()" data-file="fluenttly.html">
+            <img src="lib/img/shrks-tshirt.jpg" alt="" class="clip-project" onclick="openDetail()" data-file="shrks.html">
                 </div>
             </div>
         </div>
 
         <div class="window" id="win-detail"
             style=" top: -15%;
-                    left: 30%;
+                    left: 0%;
                     transform: translate(50%, 50%);
                     display: none;">
             <div class="title-bar" id="title-detail">
                 <img src="img/bar.svg" alt="">
                 <div class="stripe-bar"></div>
-                <h1>Project Name</h1>
+                <h2>Project Detail</h3>
                 <div class="stripe-bar"></div>
                 <div class="close" onclick="closeDetail()"></div>
             </div>
-            <div class="subtitle-bar">
-                <p>Category</p>
-                <p>Clients Name</p>
-                <p>project.link</p>
-            </div>
-            <div class="content-area">
-                <h2>SHRKS Branding</h2>
-                <p class="description">SHRKS, a basketball club needs a design for their new logo and their sport costume</p>
-                <div class="project-clip-wrap">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
-                    <img src="img/project/atas.jpeg" alt="" class="clip-project" onclick="openImage()">
-                </div>
+            <div class="content-area" id="detail-content">
             </div>
         </div>
         <div class="window" id="win-image"
@@ -570,7 +576,58 @@
         imageStartY = e.clientY;
     }
 
+    function imageDragMouseMove(e) {
+        if (isimageDown) {
+            var x = imageStartX - e.clientX;
+            var y = imageStartY - e.clientY;
+            imageWin.style.top = (imageWin.offsetTop - y) + "px";
+            imageWin.style.left = (imageWin.offsetLeft - x) + "px";
+            imageStartX = e.clientX;
+            imageStartY = e.clientY;
+        }
+    }
+
+    function imageDragMouseUp() {
+        isimageDown = false;
+    }
+
+    function imageDragTouchDown(e) {
+        isimageDown = true;
+        imageStartX = e.changedTouches[0].clientX;
+        imageStartY = e.changedTouches[0].clientY;
+    }
+
+    function imageDragTouchMove(e) {
+        if (isimageDown) {
+            var x = imageStartX - e.changedTouches[0].clientX;
+            var y = imageStartY - e.changedTouches[0].clientY;
+            imageWin.style.top = (imageWin.offsetTop - y) + "px";
+            imageWin.style.left = (imageWin.offsetLeft - x) + "px";
+            imageStartX = e.changedTouches[0].clientX;
+            imageStartY = e.changedTouches[0].clientY;
+        }
+    }
+
+    function imageDragTouchUp() {
+        isimageDown = false;
+    }
 </script>
+
+<!-- SHOW DYNAMIC CONTENT -->
+ <script>
+    // SHOW DYNAMIC CONTENT
+    document.querySelectorAll('.clip-project').forEach(item => {
+            item.addEventListener('click', function() {
+                const fileName = this.getAttribute('data-file');
+                fetch(`lib/${fileName}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('detail-content').innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            });
+        });
+ </script>
 
 </body>
 </html>
