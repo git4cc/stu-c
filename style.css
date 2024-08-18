@@ -6,6 +6,7 @@ h1 {
 }
 h2 {
     margin: 0;
+    font-family: "ChicagoFLF";
 }
 
 p {
@@ -13,3 +14,10 @@ p {
     font-family: 'Courier';
 }
 
+.content-image {
+    width: 100%;
+    transition: all 0.5s;
+}
+.content-image:hover {
+    filter: grayscale(0);
+}
